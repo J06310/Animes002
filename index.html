@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lista de Videos Modal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .folder-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .folder {
+            cursor: pointer;
+            text-align: center;
+            margin: 10px;
+            width: calc(33.33% - 20px);
+            position: relative;
+            color: #FFFFFF;
+        }
+
+        .folder img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .folder:hover img {
+            transform: scale(1.05);
+        }
+
+        .modal, .inner-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background-color: #0, 0, 0, 0;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .modal-content img {
+            width: 50%;
+            display: block;
+            margin: 0 auto 15px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #ffffff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .modal-info {
+            font-size: 15px;
+            color: #FFFFFF;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .modal-info h3 {
+            color: #ffcc00;
+            font-size: 22px;
+            white-space: nowrap;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .modal-info p {
+            margin: 8px 0;
+        }
+
+        .icono {
+            color: #FFFFFF;
+            margin-right: 8px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            color: #FFFFFF;
+            background-color: #FF0000;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+            display: inline-block;
+            white-space: nowrap;
+            width: auto;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #FF0000;
+        }
+
+        .video-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="folder-container">
+<!-- Anime #1 -->
+<div class="folder" onclick="openModal('modalElDeseoDeLaEscoria')">
+    <img src="https://image.tmdb.org/t/p/original/8U0eSjzPxT5c4ELsoIzd3bljoL8.jpg" alt="El deseo de la escoria">
+</div>
+<!-- Anime #2 -->
+<div class="folder" onclick="openModal('modalRanma')">
+    <img src="https://image.tmdb.org/t/p/original/zQhwc27CWHM4zx9lJU9bI5FRQOm.jpg" alt="Ranma½">
+</div>
+<!-- Anime #3 -->
+<div class="folder" onclick="openModal('modalArcane')">
+    <img src="https://image.tmdb.org/t/p/original/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg" alt="Arcane">
+</div>
+</div>
+
+<!-- ANIME "EL DESEO DE LA ESCORIA" -->
+
+<!-- MODAL -->
+
+<div id="modalElDeseoDeLaEscoria" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modalElDeseoDeLaEscoria')">×</span>
+        <img src="https://image.tmdb.org/t/p/original/8U0eSjzPxT5c4ELsoIzd3bljoL8.jpg" alt="El deseo de la escoria">
+        <h3>EL DESEO DE LA ESCORIA</h3>
+        <div class="modal-info">
+            <p><i class="fas fa-calendar-alt icono"></i><strong>Año:</strong> 2017</p>
+            <p><i class="fas fa-film icono"></i><strong>Género:</strong> Animación, Drama</p>
+            <p><i class="fas fa-tv icono"></i><strong>Temporadas:</strong> 1</p>
+            <p><i class="fas fa-list icono"></i><strong>Episodios:</strong> 12</p>
+            <p><i class="fas fa-signal icono"></i><strong>Estado:</strong> Finalizada</p>
+            <p><i class="fas fa-info-circle icono"></i><strong>Sinopsis:</strong> Para el mundo exterior, Hanabi Yasuraoka y Mugi Awaya son la pareja perfecta. Pero en realidad, solo comparten el mismo dolor secreto: ambos están enamorados de otras personas con las que no pueden estar. Hanabi ha amado a su amigo de la infancia y vecino Narumi Kanai desde que tiene memoria, por lo que está eufórica de descubrir que él es su nuevo maestro de aula.</p>
+            <div class="video-buttons">
+                <span class="button" onclick="openInnerModal('innerModalElDeseoDeLaEscoriaS1')">TEMPORADA 1</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TEMPORADA 1 -->
+
+<div id="innerModalElDeseoDeLaEscoriaS1" class="inner-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeInnerModal('innerModalElDeseoDeLaEscoriaS1')">×</span>
+        <div class="video-buttons">
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2ZmbmYxOXJqZjJ0bg==" class="button" target="_blank">Episodio 1</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2p0N3gzazk5dDAzeg==" class="button" target="_blank">Episodio 2</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3VjYTJoeHVwMjNpYg==" class="button" target="_blank">Episodio 3</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3E2NTVmdGQ4Yjljdg==" class="button" target="_blank">Episodio 4</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzMwMHR1a2FnZTJybg==" class="button" target="_blank">Episodio 5</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2ZlOWsxYjg1cXBocQ==" class="button" target="_blank">Episodio 6</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzN2ZHpmc3JjazcyaA==" class="button" target="_blank">Episodio 7</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL21yZWEwNmk3Nm9pMw==" class="button" target="_blank">Episodio 8</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2c3MDY5aTIyc2o5MQ==" class="button" target="_blank">Episodio 9</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3BnMDNtYTc2eG5zag==" class="button" target="_blank">Episodio 10</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2NqYXkzejFod2pkbQ==" class="button" target="_blank">Episodio 11</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2dlc2Rqdzc2bGczbA==" class="button" target="_blank">Episodio 12</a>
+        </div>
+    </div>
+</div>
+
+<!-- ANIME "RANMA½" -->
+
+<!-- MODAL -->
+
+<div id="modalRanma" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modalRanma')">×</span>
+        <img src="https://image.tmdb.org/t/p/original/zQhwc27CWHM4zx9lJU9bI5FRQOm.jpg" alt="Ranma½">
+        <h3>RANMA½</h3>
+        <div class="modal-info">
+            <p><i class="fas fa-calendar-alt icono"></i><strong>Año:</strong> 2024</p>
+            <p><i class="fas fa-film icono"></i><strong>Género:</strong> Animación, Action & Adventure, Comedia, Sci-Fi & Fantasy</p>
+            <p><i class="fas fa-tv icono"></i><strong>Temporadas:</strong> 1</p>
+            <p><i class="fas fa-list icono"></i><strong>Episodios:</strong> 12</p>
+            <p><i class="fas fa-signal icono"></i><strong>Estado:</strong> Continuá</p>
+            <p><i class="fas fa-info-circle icono"></i><strong>Sinopsis:</strong> Akane Tendo conoce a su prometido, Ranma Saotome, un experto en artes marciales con un detallecito menor: por arte de magia, se transforma en chica cuando toca el agua fría.</p>
+            <div class="video-buttons">
+                <span class="button" onclick="openInnerModal('innerModalRanmaS1')">TEMPORADA 1</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TEMPORADA 1 -->
+
+<div id="innerModalRanmaS1" class="inner-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeInnerModal('innerModalRanmaS1')">×</span>
+        <div class="video-buttons">
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2F0Y3RlZWNjdG15OA==" class="button" target="_blank">Episodio 1</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3RpZWM5NWV5cjYxYw==" class="button" target="_blank">Episodio 2</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2dpM2tyNnZvaDM1eA==" class="button" target="_blank">Episodio 3</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2VjMWNyM2hqdnJpeQ==" class="button" target="_blank">Episodio 4</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2w4ZDA3Zm03MHhjbg==" class="button" target="_blank">Episodio 5</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzkwN2Z5MzNoMGM5bA==" class="button" target="_blank">Episodio 6</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2R5ZHRxaXNvMnVvMw==" class="button" target="_blank">Episodio 7</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2VqdDR3eG9obmp6Mg==" class="button" target="_blank">Episodio 8</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2NkeDhmdDJvNXh4dQ==" class="button" target="_blank">Episodio 9</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3dtN3puZHcyenl2eQ==" class="button" target="_blank">Episodio 10</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3Y2aGM3Z294MWZlZA==" class="button" target="_blank">Episodio 11</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3Z2bzlmaHNscXJkdw==" class="button" target="_blank">Episodio 12</a>
+        </div>
+    </div>
+</div>
+
+<!-- ANIME "ARCANE" -->
+
+<!-- MODAL -->
+
+<div id="modalArcane" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modalArcane')">×</span>
+        <img src="https://image.tmdb.org/t/p/original/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg" alt="Arcane">
+        <h3>ARCANE</h3>
+        <div class="modal-info">
+            <p><i class="fas fa-calendar-alt icono"></i><strong>Año:</strong> 2021</p>
+            <p><i class="fas fa-film icono"></i><strong>Género:</strong> Animación, Sci-Fi & Fantasy, Drama, Action & Adventure</p>
+            <p><i class="fas fa-tv icono"></i><strong>Temporadas:</strong> 2</p>
+            <p><i class="fas fa-list icono"></i><strong>Episodios:</strong> 18</p>
+            <p><i class="fas fa-signal icono"></i><strong>Estado:</strong> Finalizada</p>
+            <p><i class="fas fa-info-circle icono"></i><strong>Sinopsis:</strong> Mientras la discordia separa las ciudades gemelas de Piltóver y Zaun, dos hermanas se enfrentan en una guerra feroz entre tecnologías mágicas y convicciones opuestas.</p>
+            <div class="video-buttons">
+                <span class="button" onclick="openInnerModal('innerModalArcaneS1')">TEMPORADA 1</span>
+                <span class="button" onclick="openInnerModal('innerModalArcaneS2')">TEMPORADA 2</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TEMPORADA 1 -->
+
+<div id="innerModalArcaneS1" class="inner-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeInnerModal('innerModalArcaneS1')">×</span>
+        <div class="video-buttons">
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2ZhdTIzdml1ZmRvdA==" class="button" target="_blank">Episodio 1</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3JiOWFxeTBkYWo3cA==" class="button" target="_blank">Episodio 2</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2ZlOWw4Znk0andidA==" class="button" target="_blank">Episodio 3</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2N3dDNqOTNsdGFwdw==" class="button" target="_blank">Episodio 4</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL20wZ3N5cmxuMDBwZQ==" class="button" target="_blank">Episodio 5</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3l5ejR4ZTB4YmZhcg==" class="button" target="_blank">Episodio 6</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2dwcTY4cWVpYWdqOQ==" class="button" target="_blank">Episodio 7</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzhqc2hwb2d3czJkaQ==" class="button" target="_blank">Episodio 8</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzBnYm5xY2dsaTI3Mw==" class="button" target="_blank">Episodio 9</a>
+        </div>
+    </div>
+</div>
+
+<!-- TEMPORADA 2 -->
+
+<div id="innerModalArcaneS2" class="inner-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeInnerModal('innerModalArcaneS2')">×</span>
+        <div class="video-buttons">
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzh6aXpvZDZrYmwyaw==" class="button" target="_blank">Episodio 1</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3Bubzc0NWY0cmx0MA==" class="button" target="_blank">Episodio 2</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2dxeTUybXBuZHJ3eQ==" class="button" target="_blank">Episodio 3</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzVkcTkwM2Nla3FvYw==" class="button" target="_blank">Episodio 4</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3JibDdha202bHVtaA==" class="button" target="_blank">Episodio 5</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL2ZnZGNyZGQ3Z2NkbQ==" class="button" target="_blank">Episodio 6</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lLzc3emw5anJpNDV4NQ==" class="button" target="_blank">Episodio 7</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3luajB3andsMDJlNQ==" class="button" target="_blank">Episodio 8</a>
+            <a href="https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=aHR0cHM6Ly9naGJyaXNrLmNvbS9lL3dsYjJubTFyeHp5bg==" class="button" target="_blank">Episodio 9</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+(function() {
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    function openInnerModal(innerModalId) {
+        document.getElementById(innerModalId).style.display = "block";
+    }
+
+    function closeInnerModal(innerModalId) {
+        document.getElementById(innerModalId).style.display = "none";
+    }
+
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+    window.openInnerModal = openInnerModal;
+    window.closeInnerModal = closeInnerModal;
+})();
+</script>
+
+</body>
+</html>
