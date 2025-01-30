@@ -143,27 +143,27 @@
 <div class="folder-container">
 <!-- Anime #1 -->
 <div class="folder" onclick="openModal('modalElDeseoDeLaEscoria')">
-    <img src="https://image.tmdb.org/t/p/original/8U0eSjzPxT5c4ELsoIzd3bljoL8.jpg" alt="El deseo de la escoria">
+    <img src="https://image.tmdb.org/t/p/original/8U0eSjzPxT5c4ELsoIzd3bljoL8.jpg" alt="El deseo de la escoria"><div class="label">#1</div>
 </div>
 <!-- Anime #2 -->
 <div class="folder" onclick="openModal('modalRanma')">
-    <img src="https://image.tmdb.org/t/p/original/zQhwc27CWHM4zx9lJU9bI5FRQOm.jpg" alt="Ranma½">
+    <img src="https://image.tmdb.org/t/p/original/zQhwc27CWHM4zx9lJU9bI5FRQOm.jpg" alt="Ranma½"><div class="label">#2</div>
 </div>
 <!-- Anime #3 -->
 <div class="folder" onclick="openModal('modalArcane')">
-    <img src="https://image.tmdb.org/t/p/original/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg" alt="Arcane">
+    <img src="https://image.tmdb.org/t/p/original/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg" alt="Arcane"><div class="label">#3</div>
 </div>
 <!-- Anime #4 -->
 <div class="folder" onclick="openModal('modalHousingComplexC')">
-    <img src="https://image.tmdb.org/t/p/original/dJHp3WlbbBhhKo2h0avTHTrwp4C.jpg" alt="Housing Complex C">
+    <img src="https://image.tmdb.org/t/p/original/dJHp3WlbbBhhKo2h0avTHTrwp4C.jpg" alt="Housing Complex C"><div class="label">#4</div>
 </div>
 <!-- Anime #5 -->
 <div class="folder" onclick="openModal('modalTengokuDaimakyo')">
-    <img src="https://image.tmdb.org/t/p/original/4g7WDOkhKK5GJEOWWH0dPi5wa40.jpg" alt="Tengoku Daimakyo">
+    <img src="https://image.tmdb.org/t/p/original/4g7WDOkhKK5GJEOWWH0dPi5wa40.jpg" alt="Tengoku Daimakyo"><div class="label">#5</div>
 </div>
 <!-- Anime #6 -->
 <div class="folder" onclick="openModal('modalDeathParade')">
-    <img src="https://image.tmdb.org/t/p/original/qeD9wDenN7CPA99FScSErJCvcWb.jpg" alt="Death Parade">
+    <img src="https://image.tmdb.org/t/p/original/qeD9wDenN7CPA99FScSErJCvcWb.jpg" alt="Death Parade"><div class="label">#6</div>
 </div>
 </div>
 
@@ -451,8 +451,25 @@
 
 
 
+<!-- AQUI ESTA EL CÓDIGO DE LA "ETIQUETA" -->
 
-
+<style>
+    .poster-container {
+        position: relative;
+        display: inline-block;
+    }
+    .label {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        background: red;
+        color: white;
+        padding: 3px 5px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 3px;
+    }
+</style>
 
 <script>
 (function() {
